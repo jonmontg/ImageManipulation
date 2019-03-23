@@ -19,3 +19,19 @@ def get_matrix(filepath):
 #  between an image and its copy with an applied gaussian filter
 def get_edges(image_matrix):
     return np.subtract(gaussian_filter(image_matrix), image_matrix)
+
+
+#  Returns a 2d numpy array based on the given matrix. The new matrix has 1/2 the width and 1/2 the height of the given
+#  matrix. Each block of 4 pixels is compressed to an average in the new matrix.
+def convolute_and_comptress(matrix):
+    shape = matrix.shape
+    new_shape = (int(shape[0]/2), int(shape[1]/2))
+    compressed = np.zeros(shape=new_shape)
+
+    for i in range(len(compressed)):
+        for j in range(len(compressed[i])):
+            compressed[i][j] = (matrix[2*i][2*j] +
+                                matrix[2*i+1][2*j] +
+                                matrix[2*i+1][2*j+1] +
+                                matrix[2*i][2*j+1])/4
+    return compressed
