@@ -17,8 +17,8 @@ def get_matrix(filepath):
 
 #  Returns a 2d numpy array of pixel intensities derived from the given matrix. This edge detector finds the difference
 #  between an image and its copy with an applied gaussian filter
-def get_edges(image_matrix):
-    return np.subtract(gaussian_filter(image_matrix), image_matrix)
+def get_edges(matrix):
+    return np.subtract(gaussian_filter(matrix), matrix)
 
 
 #  Returns a 2d numpy array based on the given matrix. The new matrix has 1/2 the width and 1/2 the height of the given
