@@ -23,7 +23,7 @@ def get_edges(matrix):
 
 #  Returns a 2d numpy array based on the given matrix. The new matrix has 1/2 the width and 1/2 the height of the given
 #  matrix. Each block of 4 pixels is compressed to an average in the new matrix.
-def convolute_and_comptress(matrix):
+def simple_comptress(matrix):
     shape = matrix.shape
     new_shape = (int(shape[0]/2), int(shape[1]/2))
     compressed = np.zeros(shape=new_shape)
